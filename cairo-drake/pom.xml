@@ -50,6 +50,20 @@
       <systemPath>${basedir}/lib/platform_afc.jar</systemPath>
     </dependency>
     <dependency>
+      <groupId>com.ibm.oms.sterling</groupId>
+      <artifactId>entities</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/entities.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.oms.sterling</groupId>
+      <artifactId>xapi</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/xapi.jar</systemPath>
+    </dependency>
+    <dependency>
       <groupId>log4j</groupId>
       <artifactId>log4j</artifactId>
       <version>1.2.17</version>
