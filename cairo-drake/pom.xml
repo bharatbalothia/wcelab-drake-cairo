@@ -51,6 +51,13 @@
     </dependency>
     <dependency>
       <groupId>com.ibm.oms.sterling</groupId>
+      <artifactId>install_foundation</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/install_foundation.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.oms.sterling</groupId>
       <artifactId>entities</artifactId>
       <version>1.0.0</version>
       <scope>system</scope>
