@@ -7,6 +7,7 @@ cd /opt/ssfs/runtime && ./runSed.sh
 mkdir -p /home/omsuser/.docker
 ln -s /var/run/secrets/openshift.io/push /home/omsuser/.docker/config.json
 
+env
 echo "Agent Repo : ${AGENT_REPO}  Agent Tag: ${AGENT_TAG}"
 cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=agent --AGENT_REPO=oms-agent-custom --AGENT_TAG=latest 
 #cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=app
