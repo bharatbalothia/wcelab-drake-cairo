@@ -11,7 +11,9 @@ env
 echo "Agent Repo : ${AGENT_REPO}  Agent Tag: ${AGENT_TAG}"
 cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=agent --AGENT_REPO=oms-agent-custom --AGENT_TAG=latest 
 #cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=app
+cp /var/run/secrets/openshift.io/push/.dockercfg /tmp
+(echo "{ \"auths\": " ; cat /var/run/secrets/openshift.io/push/.dockercfg ; echo "}") > /tmp/.dockercfg
 buildah --storage-driver vfs images
-buildah --storage-driver vfs push --authfile /var/run/secrets/openshift.io/push --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost/oms-agent-custom:latest docker://${AGENT_REPO}:${AGENT_TAG} 
+buildah --storage-driver vfs push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost/oms-agent-custom:latest docker://${AGENT_REPO}:${AGENT_TAG} 
 
 
