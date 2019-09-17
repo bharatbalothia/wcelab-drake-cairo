@@ -11,6 +11,7 @@ env
 echo "Agent Repo : ${AGENT_REPO}  Agent Tag: ${AGENT_TAG}"
 cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=agent --AGENT_REPO=oms-agent-custom --AGENT_TAG=latest 
 #cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=app
-#buildah --storage-driver vfs push oms-agent-custom:latest docker:${AGENT_REPO}:${AGENT_TAG}
+buildah images
+buildah --storage-driver vfs push oms-agent-custom:latest docker:${AGENT_REPO}:${AGENT_TAG}
 
 
