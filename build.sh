@@ -25,15 +25,15 @@ cp /var/run/secrets/openshift.io/push/.dockercfg /tmp
 if [ $BUILD_MODE = "agent" ]
 then 
     cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=agent
-    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost:oms-agent:10.0 docker://${OUTPUT_REGISTRY}:${OUTPUT_IMAGE}
+    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost/oms-agent:10.0 docker://${OUTPUT_REGISTRY}/${OUTPUT_AGENT_IMAGE}
 elif [ $BUILD_MODE = "agent" ]
 then
     cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=app
-    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost:oms-app:10.0 docker://${OUTPUT_REGISTRY}:${OUTPUT_IMAGE}
+    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost/oms-app:10.0 docker://${OUTPUT_REGISTRY}/${OUTPUT_APP_IMAGE}
 elif [ $BUILD_MODE = "base" ]
 then
     cd /opt/ssfs/runtime/docker-samples/imagebuild && ./generateImages.sh --MODE=base
-    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost:oms-base:10.0 docker://${OUTPUT_REGISTRY}:${OUTPUT_IMAGE}
+    buildah push --authfile /tmp/.dockercfg --cert-dir /var/run/secrets/kubernetes.io/serviceaccount localhost/oms-base:10.0 docker://${OUTPUT_REGISTRY}/${OUTPUT_BASE_IMAGE}
 elif [ $BUILD_MODE = "cdt_import" ]
 then
     export SOURCE_DB=${SOURCE_DB:-"MC_XML"}
