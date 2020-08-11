@@ -65,6 +65,13 @@
     </dependency>
     <dependency>
       <groupId>com.ibm.oms.sterling</groupId>
+      <artifactId>yimbe</artifactId>
+      <version>1.0.0</version>
+      <scope>system</scope>
+      <systemPath>${basedir}/lib/yimbe.jar</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>com.ibm.oms.sterling</groupId>
       <artifactId>xapi</artifactId>
       <version>1.0.0</version>
       <scope>system</scope>
